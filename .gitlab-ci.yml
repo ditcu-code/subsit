@@ -1,29 +1,31 @@
-image: node:8.15.1
+image: node:latest
 
 stages:
-  - build
+  - test
   - staging
-  - production
 
-deploy-to-development:
-  type: build
+test:
+  image: node:latest
+  stage: test
   script:
-    - yarn install
-    - yarn build
-  except:
-    - develop
-    - master
+    - npm install
+    - npm run test
+  only:
+    - deploy
+  tags:
+    - docker
 
-deploy-to-staging:
-  type: deploy
+staging:
   stage: staging
   environment:
     name: staging
-    url: https://staging-netflix.herokuapp.com/
+    url: https://subs-it.herokuapp.com/
   script:
     - apt-get update -qy
-    - apt-get install -y ruby ruby-dev rubygems-integration
+    - apt-get install -y ruby-dev
     - gem install dpl
     - dpl --provider=heroku --app=subs-it --api-key=80e04161-5631-43d0-9b6b-4ee0ef01f6c7
   only:
     - deploy
+  tags:
+    - docker

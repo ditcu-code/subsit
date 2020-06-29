@@ -20,7 +20,7 @@
   },
   "scripts": {
     "dev": "react-scripts start",
-    "heroku-postbuild": "yarn build",
+    "heroku-postbuild": "npm run build",
     "start": "serve -s build",
     "build": "react-scripts build",
     "test": "CI=true react-scripts test",
