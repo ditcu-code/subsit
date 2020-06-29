@@ -9,7 +9,7 @@ deploy-to-development:
   type: build
   script:
     - yarn install
-    - yarn run build
+    - yarn build
   except:
     - develop
     - master
