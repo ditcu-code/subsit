@@ -12,8 +12,6 @@ test:
   except:
     - develop
     - master
-  tags:
-    - test
 
 staging:
   stage: staging
@@ -28,7 +26,7 @@ staging:
   only:
     - develop
   tags:
-    - development
+    - docker
 
 production:
   stage: production
@@ -43,4 +41,4 @@ production:
   only:
     - master
   tags:
-    - launch
+    - docker
