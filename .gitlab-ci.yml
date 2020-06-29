@@ -1,6 +1,7 @@
 stages:
   - test
   - staging
+  - production
 
 test:
   image: node:latest
@@ -17,13 +18,28 @@ staging:
   stage: staging
   environment:
     name: staging
-    url: https://subs-it.herokuapp.com/
+    url: https://staging-subsit.herokuapp.com/
   script:
     - apt-get update -qy
     - apt-get install -y ruby-dev
     - gem install dpl
-    - dpl --provider=heroku --app=subs-it --api-key=80e04161-5631-43d0-9b6b-4ee0ef01f6c7
+    - dpl --provider=heroku --app=staging-subsit --api-key=80e04161-5631-43d0-9b6b-4ee0ef01f6c7
   only:
-    - deploy
+    - develop
+  tags:
+    - docker
+
+production:
+  stage: production
+  environment:
+    name: production
+    url: https://subsit.herokuapp.com/
+  script:
+    - apt-get update -qy
+    - apt-get install -y ruby-dev
+    - gem install dpl
+    - dpl --provider=heroku --app=subsit --api-key=80e04161-5631-43d0-9b6b-4ee0ef01f6c7
+  only:
+    - master
   tags:
     - docker
