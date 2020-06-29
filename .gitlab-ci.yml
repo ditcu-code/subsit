@@ -13,7 +13,7 @@ test:
     - develop
     - master
   tags:
-    - testing
+    - test
 
 staging:
   stage: staging
@@ -28,7 +28,7 @@ staging:
   only:
     - develop
   tags:
-    - staging
+    - development
 
 production:
   stage: production
@@ -43,4 +43,4 @@ production:
   only:
     - master
   tags:
-    - deploy
+    - launch
