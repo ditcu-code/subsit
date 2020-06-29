@@ -8,11 +8,12 @@ test:
   stage: test
   script:
     - npm install
-    - npm run build
-  only:
-    - deploy
+    - npm run test
+  except:
+    - develop
+    - master
   tags:
-    - docker
+    - testing
 
 staging:
   stage: staging
@@ -27,7 +28,7 @@ staging:
   only:
     - develop
   tags:
-    - docker
+    - staging
 
 production:
   stage: production
@@ -42,4 +43,4 @@ production:
   only:
     - master
   tags:
-    - docker
+    - deploy
