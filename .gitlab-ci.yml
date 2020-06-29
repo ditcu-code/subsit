@@ -1,0 +1,29 @@
+image: node:8.15.1
+
+stages:
+  - build
+  - staging
+  - production
+
+deploy-to-development:
+  type: build
+  script:
+    - npm install
+    - npm run build
+  except:
+    - develop
+    - master
+
+deploy-to-staging:
+  type: deploy
+  stage: staging
+  environment:
+    name: staging
+    url: https://staging-netflix.herokuapp.com/
+  script:
+    - apt-get update -qy
+    - apt-get install -y ruby ruby-dev rubygems-integration
+    - gem install dpl
+    - dpl --provider=heroku --app=subs-it --api-key=80e04161-5631-43d0-9b6b-4ee0ef01f6c7
+  only:
+    - deploy
