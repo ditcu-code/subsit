@@ -8,8 +8,8 @@ stages:
 deploy-to-development:
   type: build
   script:
-    - npm install
-    - npm run build
+    - yarn install
+    - yarn run build
   except:
     - develop
     - master
