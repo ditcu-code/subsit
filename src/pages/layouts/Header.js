@@ -18,8 +18,7 @@ const Header = () => {
         <div className="header">
             <div className="header__brand">
                 <div className="header__brand__container">
-                    {/* <img src={logo} alt="logo" /> */}
-                    <h4>Subs <span style={{ color: "#8F48EA" }}>It</span> </h4>
+                    <img src={require('../../assets/images/SubsIt..png')} alt="logo"></img>
                 </div>
             </div>
             <div className="header__tag">
