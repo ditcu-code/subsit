@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Pertama, bismillah dulu
 
 Abis itu git clone dulu sob
@@ -10,3 +11,6 @@ Setelah itu yarn install
 > yarn install
 
 Selamat bekerja
+=======
+TIM A
+>>>>>>> 0565ef0214335a0ab85734287e22586913558d56
