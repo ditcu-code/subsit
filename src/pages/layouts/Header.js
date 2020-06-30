@@ -27,9 +27,12 @@ const Header = () => {
                 <a href="/#">Product </a>
             </div>
             <div className="header__user__btn">
-                <a href="/#" className="header__user__btn" style={{ backgroundColor: "#8F48EA", padding: "7px", marginBottom: "10px" }}>
-                    Sign In
+               <a href="/#" className="header__user__btn" style={{ backgroundColor: "#8F48EA", padding: "7px", marginBottom: "10px", color: "white" }}>
+                    Sign Up
               </a>
+                <a href="/#" style={{ color: "black", marginLeft: "10px" }}>
+                    Sign in
+                    </a>
                 {modal[signin] ? (
                     <Signin toggleModal={toggleModal} signup={signup} />
                 ) : (
