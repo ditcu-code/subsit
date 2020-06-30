@@ -1,8 +1,12 @@
-import React from 'react'
-import '../assets/styles/HomePage.scss'
+import React from 'react';
+import '../assets/styles/HomePage.scss';
+import './layouts/Header';
+
+
 
 const HomePage = () => {
     return (
+
         <div className="landing">
             <div className="row">
                 <div className="row__left">
@@ -23,8 +27,7 @@ const HomePage = () => {
                     <img src={require('../assets/images/spotify.png')} alt="spotify" />
                 </div>
             </div>
-
-        </div >
+        </div>
     )
 }
 
