@@ -8,7 +8,7 @@ import { ACTION_SIGN_OUT } from "../../stores/actions/auth";
 import "../../assets/styles/Header.scss";
 
 
-const Header = () => {
+const Header = (props) => {
     const stateUser = useSelector(state => state.auth);
     const dispatch = useDispatch();
 
@@ -23,7 +23,7 @@ const Header = () => {
         console.log("signout triggered");
         dispatch(ACTION_SIGN_OUT());
     };
-
+    console.log(props.history)
     const toggleModal = e => {
         setModal({
             [e.target.id]: !modal[e.target.id]
