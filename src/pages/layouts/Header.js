@@ -27,14 +27,15 @@ const Header = () => {
 
             </div>
             <div className="header__user__btn">
-<<<<<<< HEAD
 
                 <a href="/#" className="header__user__btn" style={{ backgroundColor: "#8F48EA", padding: "7px", marginBottom: "10px", color: "white" }}>
-=======
-               <a href="/#" className="header__user__btn" style={{ backgroundColor: "#8F48EA", padding: "7px", marginBottom: "10px", color: "white" }}>
->>>>>>> 739ea7654d16db3d91a766b454f2edf33d8a29eb
                     Sign Up
               </a>
+                {modal[signup] ? (
+                    <Signup toggleModal={toggleModal} signin={signin} />
+                ) : (
+                        false
+                    )}
                 <a href="/#" style={{ color: "black", marginLeft: "10px" }}>
                     Sign in
                     </a>
@@ -43,11 +44,11 @@ const Header = () => {
                 ) : (
                         false
                     )}
-                {modal[signup] ? (
+                {/* {modal[signup] ? (
                     <Signup toggleModal={toggleModal} signin={signin} />
                 ) : (
                         false
-                    )}
+                    )} */}
             </div>
 
         </div>
