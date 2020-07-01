@@ -1,9 +1,14 @@
 import React from 'react'
+import HeaderDash from '../components/Dashboard/HeaderDash'
+import HeaderDash2 from '../components/Dashboard/HeaderDash copy'
+import ChartBar from '../components/Dashboard/ChartBar'
 
 const Dashboard = () => {
     return (
         <div>
-            <h1>This is from Dashboard.js</h1>
+            <HeaderDash/>
+            <HeaderDash2/>
+            <ChartBar/>
         </div>
     )
 }
