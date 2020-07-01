@@ -18,8 +18,7 @@ const Header = () => {
         <div className="header">
             <div className="header__brand">
                 <div className="header__brand__container">
-                    {/* <img src={logo} alt="logo" /> */}
-                    <h4>Subs <span style={{ color: "#8F48EA" }}>It</span> </h4>
+                    <img src={require('../../assets/images/SubsIt..png')} alt="logo"></img>
                 </div>
             </div>
             <div className="header__tag">
@@ -28,8 +27,12 @@ const Header = () => {
 
             </div>
             <div className="header__user__btn">
+<<<<<<< HEAD
 
                 <a href="/#" className="header__user__btn" style={{ backgroundColor: "#8F48EA", padding: "7px", marginBottom: "10px", color: "white" }}>
+=======
+               <a href="/#" className="header__user__btn" style={{ backgroundColor: "#8F48EA", padding: "7px", marginBottom: "10px", color: "white" }}>
+>>>>>>> 739ea7654d16db3d91a766b454f2edf33d8a29eb
                     Sign Up
               </a>
                 <a href="/#" style={{ color: "black", marginLeft: "10px" }}>
