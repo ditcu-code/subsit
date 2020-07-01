@@ -1,0 +1,27 @@
+stages:
+  - test
+  - production
+
+test:
+  image: node:latest
+  stage: test
+  script:
+    - npm install
+    - npm run build
+  only:
+    - develop
+
+production:
+  stage: production
+  environment:
+    name: production
+    url: https://$HEROKU_PRODUCTION_APP.$DOMAIN_APP
+  script:
+    - apt-get update -qy
+    - apt-get install -y ruby ruby-dev rubygems-integration
+    - gem install dpl
+    - dpl --provider=heroku --app=$HEROKU_PRODUCTION_APP --api-key=$HEROKU_API_KEY
+  only:
+    - master
+  tags:
+    - docker
