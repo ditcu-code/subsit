@@ -1,0 +1,9 @@
+.calendarauth{
+    .ant-alert-info{
+        background-color: white;
+        border: none;
+    }
+    .ant-radio-button-wrapper-checked:not(.ant-radio-button-wrapper-disabled):first-child{
+        border-right-color: red;
+    }
+}
