@@ -10,3 +10,4 @@ Setelah itu yarn install
 > yarn install
 
 Selamat bekerja
+TIM A

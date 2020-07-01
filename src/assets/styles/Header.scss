@@ -1,0 +1,71 @@
+// .header {
+//     display: flex;
+// }
+
+
+.header {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  background-color: white;
+  width: 100vw;
+  margin: 0 5rem;
+  &__brand {
+    grid-column: 2/5;
+    margin-bottom: -2.5vh;
+    margin-top: 0;
+    &__container {
+      display: flex;
+      cursor: pointer;
+      img{
+        width: 30%;
+        margin-top: 10px;
+      }
+    }
+  }
+  &__tag {
+    grid-column: 9/10;
+    margin-top: 1rem;
+    a {
+      color: black;
+      margin: 0 15px;
+      text-decoration: none;
+    }
+  }
+  &__user {
+    grid-column: 10/12;
+    margin-top: 0.5vh;
+    img {
+      max-width: 3vw;
+      height: 6vh;
+      border-radius: 100%;
+    }
+    &__dropdown {
+      button {
+        display: flex;
+        color: black;
+        background-color: white;
+        border: solid;
+        border-color: grey;
+        border-radius: 10px;
+      }
+    }
+    &__btn {
+      grid-column: 10/12;
+      border: 15px;
+      font-size: 2.5vh;
+      text-decoration: none;
+      color: black;
+      cursor: pointer;
+      background-color: white;
+      margin-top: 0.9rem;
+      margin-left: 0.5rem;
+      padding: 0 5px;
+      a {
+        border-radius: 5px;
+      }
+    }
+    &__btn:hover {
+      color: white;
+    }
+  }
+}
