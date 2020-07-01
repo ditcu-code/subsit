@@ -1,6 +1,5 @@
 stages:
   - test
-  - staging
   - production
 
 test:
@@ -8,36 +7,20 @@ test:
   stage: test
   script:
     - npm install
-    - npm run test
-  except:
-    - develop
-    - master
-
-staging:
-  stage: staging
-  environment:
-    name: staging
-    url: https://staging-subsit.herokuapp.com/
-  script:
-    - apt-get update -qy
-    - apt-get install -y ruby-dev
-    - gem install dpl
-    - dpl --provider=heroku --app=staging-subsit --api-key=80e04161-5631-43d0-9b6b-4ee0ef01f6c7
+    - npm run build
   only:
     - develop
-  tags:
-    - docker
 
 production:
   stage: production
   environment:
     name: production
-    url: https://subsit.herokuapp.com/
+    url: https://$HEROKU_PRODUCTION_APP.$DOMAIN_APP
   script:
     - apt-get update -qy
-    - apt-get install -y ruby-dev
+    - apt-get install -y ruby ruby-dev rubygems-integration
     - gem install dpl
-    - dpl --provider=heroku --app=subsit --api-key=80e04161-5631-43d0-9b6b-4ee0ef01f6c7
+    - dpl --provider=heroku --app=$HEROKU_PRODUCTION_APP --api-key=$HEROKU_API_KEY
   only:
     - master
   tags:
