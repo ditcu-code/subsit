@@ -16,7 +16,10 @@
     box-shadow: 0 0 5px white;
     border-radius: 4px;
     padding: 2rem;
-    position: relative;
+    position: fixed;
+    top: 1rem;
+    right: 3rem;
+
 
     a {
       color: black;

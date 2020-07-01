@@ -3,7 +3,7 @@ import "../Modal.scss";
 
 // Redux
 import { useDispatch } from "react-redux";
-import { ACTION_CHANGE_AVATAR } from "../../../store/actions/auth";
+import { ACTION_CHANGE_AVATAR } from "../../../../stores/actions/auth";
 
 export default function Signup(props) {
   const dispatch = useDispatch();

@@ -3,6 +3,7 @@ import "../Modal.scss";
 
 // Redux
 import { useDispatch } from "react-redux";
+import { ACTION_SIGN_UP } from '../../../../stores/actions/auth'
 
 
 export default function Signup(props) {
@@ -24,7 +25,7 @@ export default function Signup(props) {
     e.preventDefault();
     props.toggleModal(e);
     console.log("handleInput");
-    dispatch((input));
+    dispatch(ACTION_SIGN_UP(input));
   };
 
   return (
