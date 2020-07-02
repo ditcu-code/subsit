@@ -5,7 +5,7 @@ import Header from '../pages/layouts/Header'
 import Dashboard from "../pages/Dashboard";
 import ChartBar from "../components/Dashboard/ChartBar";
 import CalendarAuth from "../components/Dashboard/CalendarAuth";
-// import HeaderDash2 from "../components/Dashboard/HeaderDash copy";
+import HeaderDash2 from "../components/Dashboard/HeaderDash copy";
 import Subscription from "../components/Dashboard/Subscription";
 import ServicePage from "../pages/ServicePage";
 import HeaderDash from "../components/Dashboard/HeaderDash";
@@ -14,8 +14,8 @@ const Routes = () => {
   return (
     <Fragment>
       <Router>
-        <Header/>
-        <HeaderDash/>
+        {/* <Header/> */}
+        <HeaderDash2/>
         <Switch>
           <Route path="/" component={HomePage} exact />
           <Route path="/service" component={ServicePage} exact />
