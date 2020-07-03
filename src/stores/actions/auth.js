@@ -47,7 +47,7 @@ import {
   CHANGE_AVATAR
 } from "./types";
 import Axios from "axios";
-const baseUrl = "subsit-team-a.herokuapp.com/api/v1";
+const baseUrl = "https://subsit-team-a.herokuapp.com/api/v1";
 
 export const ACTION_SIGN_UP = input => {
   return dispatch => {
