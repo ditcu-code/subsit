@@ -19,7 +19,7 @@
 .modal-sub {
   border-radius: 0.5em;
   padding: 0;
-  border: 1px solid white;
+  border: 1px solid #8F48EA;
 
   .ant-modal-content {
     border-radius: 0.5em;
@@ -52,5 +52,23 @@
 
   .info-detail {
     margin-bottom: 0.5rem;
+  }
+}
+
+.modal-input-sub {
+  border-radius: 0.5em;
+  padding: 0;
+  border: 1px solid #8F48EA;
+
+  .ant-modal-content {
+    border-radius: 0.5em;
+  }
+
+  .ant-modal-footer {
+    text-align: center;
+  }
+
+  .ant-modal-header {
+    border-radius: 0.5em;
   }
 }

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Modal, Button, Form, Input } from "antd";
 import { PlusOutlined } from "@ant-design/icons";
+import "../../assets/styles/Subscription.scss";
 
 const InputSub = () => {
   const [visible, setVisible] = useState(false);
@@ -29,11 +30,13 @@ const InputSub = () => {
       </Button>{" "}
       <div className="input-sub">
         <Modal
+          className="modal-input-sub"
           centered
           visible={visible}
           title="Input New Subscription"
           onOk={handleOk}
           onCancel={handleCancel}
+          bodyStyle={{ borderRadius: "0.5em" }}
           footer={[
             <Button key="back" onClick={handleCancel}>
               Cancel
@@ -50,22 +53,28 @@ const InputSub = () => {
         >
           <Form name="normal_login" className="login-form">
             <Form.Item
-              name="input1"
-              rules={[{ required: true, message: "Please input!" }]}
+              name="title"
+              rules={[{ required: true, message: "Please input title!" }]}
             >
-              <Input name="input1" placeholder="Input 1" />
+              <Input name="title" placeholder="Title" />
             </Form.Item>
             <Form.Item
-              name="input2"
-              rules={[{ required: true, message: "Please input!" }]}
+              name="cost"
+              rules={[{ required: true, message: "Please input cost!" }]}
             >
-              <Input name="input2" placeholder="Input 2" />
+              <Input name="cost" placeholder="Cost" />
             </Form.Item>
             <Form.Item
-              name="input3"
-              rules={[{ required: true, message: "Please input!" }]}
+              name="due_date"
+              rules={[{ required: true, message: "Please input due date!" }]}
             >
-              <Input name="input3" placeholder="Input 3" />
+              <Input name="due_date" placeholder="Due date" />
+            </Form.Item>
+            <Form.Item
+              name="payment"
+              rules={[{ required: true, message: "Please input payment!" }]}
+            >
+              <Input name="payment" placeholder="Payment" />
             </Form.Item>
           </Form>
         </Modal>
