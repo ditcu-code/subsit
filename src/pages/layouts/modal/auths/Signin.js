@@ -30,7 +30,7 @@ function Signin(props) {
     console.log("handleInput");
     dispatch(ACTION_SIGN_IN(input));
 
-    history.push('/service')
+    history.push('/chart')
   };
 
   return (

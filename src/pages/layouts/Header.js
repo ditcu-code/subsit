@@ -43,11 +43,11 @@ const Header = (props) => {
                     <img src={require('../../assets/images/SubsIt..png')} alt="logo"></img>
                 </div>
             </div>
-            <div className="header__tag">
+            {/* <div className="header__tag">
                 <a href="/#">About</a>
                 <a href="/#">Product </a>
 
-            </div>
+            </div> */}
             {stateUser ? (
                 // <div className="profile-wrapper">
                 //     <div className="profile-container">
@@ -68,7 +68,7 @@ const Header = (props) => {
                 //         </a>
                 //     </div>
                 // </div>
-                <div>
+                <div className="private-header">
                     <Col span={12}>
                     </Col>
 
@@ -98,11 +98,13 @@ const Header = (props) => {
                     </Col>
                 </div>
             ) :
-                <div className="header__user__btn">
-
-                    <a id={signup} href="/#" className="header__user__btn" style={{ backgroundColor: "#8F48EA", padding: "7px", marginBottom: "10px", color: "white" }} onClick={toggleModal}>
+                <div className="header__tag">
+                    <a href="/#">About</a>
+                    <a href="/#">Product </a>
+                    {/* <div className="header__user__btn"> */}
+                    <a id={signup} href="/#" style={{ backgroundColor: "#8F48EA", padding: "7px", marginBottom: "10px", color: "white" }} onClick={toggleModal}>
                         Sign Up
-              </a>
+                        </a>
                     {modal[signup] ? (
                         <Signup toggleModal={toggleModal} signin={signin} />
                     ) : (
@@ -111,6 +113,7 @@ const Header = (props) => {
                     <a id={signin} href="/#" style={{ color: "black", marginLeft: "10px" }} onClick={toggleModal}>
                         Sign in
                     </a>
+                    {/* </div> */}
                     {modal[signin] ? (
                         <Signin toggleModal={toggleModal} signup={signup} />
                     ) : (
