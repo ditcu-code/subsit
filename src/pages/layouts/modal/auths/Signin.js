@@ -1,11 +1,15 @@
 import React, { useState } from "react";
 import "../Modal.scss";
-
+import { useHistory } from 'react-router-dom';
 // Redux
 import { useDispatch } from "react-redux";
+import { ACTION_SIGN_IN } from "../../../../stores/actions/auth";
+
 
 
 function Signin(props) {
+  let history = useHistory();
+  console.log('history', history)
   const dispatch = useDispatch();
   const [input, setInput] = useState({
     email: "",
@@ -18,12 +22,15 @@ function Signin(props) {
       [e.target.id]: e.target.value
     });
   };
+  console.log(props.history);
 
   const handleSubmit = e => {
     e.preventDefault();
     props.toggleModal(e);
     console.log("handleInput");
-    dispatch((input));
+    dispatch(ACTION_SIGN_IN(input));
+
+    history.push('/chart')
   };
 
   return (
