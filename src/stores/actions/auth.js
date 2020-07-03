@@ -47,13 +47,13 @@ import {
   CHANGE_AVATAR
 } from "./types";
 import Axios from "axios";
-const baseUrl = "https://movie-hubapp.herokuapp.com/api/v1";
+const baseUrl = "subsit-team-a.herokuapp.com/api/v1";
 
 export const ACTION_SIGN_UP = input => {
   return dispatch => {
     console.log("ACTION_SIGN_UP", input.email);
     dispatch({ type: LOADING });
-    Axios.post(`${baseUrl}/register`, {
+    Axios.post(`${baseUrl}/user/register`, {
       email: input.email,
       name: input.name,
       password: input.password
@@ -81,9 +81,10 @@ export const ACTION_SIGN_UP = input => {
 
 export const ACTION_SIGN_IN = input => {
   return dispatch => {
+    console.log(input)
     console.log("ACTION_SIGN_IN");
     dispatch({ type: LOADING });
-    Axios.post(`${baseUrl}/users/login`, input)
+    Axios.post(`${baseUrl}/user/login`, input)
       .then(res => {
         console.log(res);
         dispatch({

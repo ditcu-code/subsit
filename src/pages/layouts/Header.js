@@ -1,16 +1,23 @@
 import React, { useState } from 'react';
-import { useSelector, useDispatch } from 'react-redux'
+import { useSelector } from 'react-redux'
 import Signin from './modal/auths/Signin';
 import Signup from './modal/auths/Signup';
 import Profile from "./modal/profile";
 import Upload from "./modal/profile/upload";
-import { ACTION_SIGN_OUT } from "../../stores/actions/auth";
+import { Col, Avatar } from "antd";
+import { Link, useHistory, useLocation } from 'react-router-dom';
+import { PieChartOutlined, AppstoreOutlined, CalendarOutlined, UserOutlined } from '@ant-design/icons';
+// import { ACTION_SIGN_OUT } from "../../stores/actions/auth";
 import "../../assets/styles/Header.scss";
 
 
 const Header = (props) => {
     const stateUser = useSelector(state => state.auth);
-    const dispatch = useDispatch();
+    // const dispatch = useDispatch();
+    let history = useHistory()
+    let location = useLocation()
+    console.log('lokasi', location.pathname)
+    console.log('history', history)
 
     const [modal, setModal] = useState("");
 
@@ -19,10 +26,10 @@ const Header = (props) => {
     const profile = "profile";
     const upload = "upload";
 
-    const doSignout = () => {
-        console.log("signout triggered");
-        dispatch(ACTION_SIGN_OUT());
-    };
+    // const doSignout = () => {
+    //     console.log("signout triggered");
+    //     dispatch(ACTION_SIGN_OUT());
+    // };
     console.log(props.history)
     const toggleModal = e => {
         setModal({
@@ -42,23 +49,53 @@ const Header = (props) => {
 
             </div>
             {stateUser ? (
-                <div className="profile-wrapper">
-                    <div className="profile-container">
-                        <h1>{stateUser.name}</h1>
-                        {/* <img className="profile" src={stateUser.profile.image_url} alt="profile" /> */}
-                    </div>
-                    <div className="dropdown">
-                        <strong className="username">{stateUser.email}</strong>
-                        <a id={upload} href="/#" onClick={toggleModal}>
-                            Change Avatar
-                        </a>
-                        <a id={profile} href="/#" onClick={toggleModal}>
-                            Update Profile
-                        </a>
-                        <a href="/#" onClick={doSignout}>
-                            Sign out
-                        </a>
-                    </div>
+                // <div className="profile-wrapper">
+                //     <div className="profile-container">
+                //         <h1>{stateUser.name}</h1>
+
+                //         {/* <img className="profile" src={stateUser.profile.image_url} alt="profile" /> */}
+                //     </div>
+                //     <div className="dropdown">
+                //         <strong className="username">{stateUser.email}</strong>
+                //         <a id={upload} href="/#" onClick={toggleModal}>
+                //             Change Avatar
+                //         </a>
+                //         <a id={profile} href="/#" onClick={toggleModal}>
+                //             Update Profile
+                //         </a>
+                //         <a href="/#" onClick={doSignout}>
+                //             Sign out
+                //         </a>
+                //     </div>
+                // </div>
+                <div>
+                    <Col span={12}>
+                    </Col>
+
+                    <Col style={{ marginTop: '1.45rem' }} span={1}>
+                        <Link to='/chart' className={location.pathname === '/chart' ? 'link' : 'linkoff'}>
+                            <Col>
+                                <PieChartOutlined className={location.pathname === '/chart' ? 'icon' : 'iconoff'} />
+                            </Col>
+                        </Link>
+                    </Col>
+                    <Col style={{ marginTop: '1.45rem' }} span={1}>
+                        <Link to='/subscription' className={location.pathname === '/subscription' ? 'link' : 'linkoff'}>
+                            <Col>
+                                <AppstoreOutlined className={location.pathname === '/subscription' ? 'icon' : 'iconoff'} />
+                            </Col>
+                        </Link>
+                    </Col>
+                    <Col style={{ marginTop: '1.45rem' }} span={1}>
+                        <Link to='/calendar' className={location.pathname === '/calendar' ? 'link' : 'linkoff'}>
+                            <Col>
+                                <CalendarOutlined className={location.pathname === '/calendar' ? 'icon' : 'iconoff'} />
+                            </Col>
+                        </Link>
+                    </Col>
+                    <Col style={{ marginTop: '1rem' }} span={2}>
+                        <Avatar size={38} icon={<UserOutlined />} />
+                    </Col>
                 </div>
             ) :
                 <div className="header__user__btn">
