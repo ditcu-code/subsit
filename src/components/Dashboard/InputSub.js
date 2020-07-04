@@ -6,21 +6,23 @@ import "../../assets/styles/Subscription.scss";
 const InputSub = () => {
   const [visible, setVisible] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [form] = Form.useForm();
 
   const showModal = () => {
     setVisible(true);
   };
 
-  const handleOk = () => {
+  const handleCancel = () => {
+    setVisible(false);
+  };
+
+  const onCreate = (values) => {
     setLoading(true);
     setTimeout(() => {
+      console.log("Received values of form: ", values);
       setLoading(false);
       setVisible(false);
     }, 3000);
-  };
-
-  const handleCancel = () => {
-    setVisible(false);
   };
 
   return (
@@ -34,7 +36,6 @@ const InputSub = () => {
           centered
           visible={visible}
           title="Input New Subscription"
-          onOk={handleOk}
           onCancel={handleCancel}
           bodyStyle={{ borderRadius: "0.5em" }}
           footer={[
@@ -45,36 +46,55 @@ const InputSub = () => {
               key="submit"
               type="primary"
               loading={loading}
-              onClick={handleOk}
+              onClick={() => {
+                form
+                  .validateFields()
+                  .then((values) => {
+                    form.resetFields();
+                    onCreate(values);
+                  })
+                  .catch((info) => {
+                    console.log("Validate Failed:", info);
+                  });
+              }}
             >
               Subscribe
             </Button>,
           ]}
         >
-          <Form name="normal_login" className="login-form">
+          <Form
+            form={form}
+            name="normal_login"
+            className="login-form"
+            layout="vertical"
+          >
             <Form.Item
               name="title"
+              label="Title"
               rules={[{ required: true, message: "Please input title!" }]}
             >
-              <Input name="title" placeholder="Title" />
+              <Input name="title" />
             </Form.Item>
             <Form.Item
               name="cost"
+              label="Cost"
               rules={[{ required: true, message: "Please input cost!" }]}
             >
-              <Input name="cost" placeholder="Cost" />
+              <Input name="cost" />
             </Form.Item>
             <Form.Item
               name="due_date"
+              label="Due date"
               rules={[{ required: true, message: "Please input due date!" }]}
             >
-              <Input name="due_date" placeholder="Due date" />
+              <Input name="due_date" />
             </Form.Item>
             <Form.Item
               name="payment"
+              label="Payment"
               rules={[{ required: true, message: "Please input payment!" }]}
             >
-              <Input name="payment" placeholder="Payment" />
+              <Input name="payment" />
             </Form.Item>
           </Form>
         </Modal>
