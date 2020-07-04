@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Modal, Button, Form, Input } from "antd";
+import { Modal, Button, Form, Input, DatePicker } from "antd";
 import { PlusOutlined } from "@ant-design/icons";
 import "../../assets/styles/Subscription.scss";
 
@@ -18,8 +18,12 @@ const InputSub = () => {
 
   const onCreate = (values) => {
     setLoading(true);
+    const newValues = {
+      ...values,
+      due_date: values["due_date"].format("YYYY-MM-DD"),
+    };
     setTimeout(() => {
-      console.log("Received values of form: ", values);
+      console.log("Received values of form: ", newValues);
       setLoading(false);
       setVisible(false);
     }, 3000);
@@ -87,7 +91,7 @@ const InputSub = () => {
               label="Due date"
               rules={[{ required: true, message: "Please input due date!" }]}
             >
-              <Input name="due_date" />
+              <DatePicker />
             </Form.Item>
             <Form.Item
               name="payment"
