@@ -86,10 +86,10 @@ export const ACTION_SIGN_IN = input => {
     dispatch({ type: LOADING });
     Axios.post(`${baseUrl}/user/login`, input)
       .then(res => {
-        console.log(res);
+        console.log('cek', res);
         dispatch({
           type: SIGN_IN,
-          payload: res.data.data
+          payload: res.data.data.token
         });
         dispatch({ type: LOADING });
       })
