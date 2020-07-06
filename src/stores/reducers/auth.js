@@ -53,16 +53,16 @@ import {
 } from "../actions/types";
 
 const authReducer = (
-  state = JSON.parse(localStorage.getItem("userLocal")),
+  state = localStorage.getItem("userLocal"),
   action
 ) => {
   switch (action.type) {
     case SIGN_UP:
-      localStorage.setItem("userLocal", JSON.stringify(action.payload));
+      localStorage.setItem("userLocal", action.payload);
       return action.payload;
 
     case SIGN_IN:
-      localStorage.setItem("userLocal", JSON.stringify(action.payload));
+      localStorage.setItem("userLocal", action.payload);
       return action.payload;
 
     case SIGN_OUT:

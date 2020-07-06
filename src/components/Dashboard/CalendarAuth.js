@@ -1,5 +1,5 @@
-import React, { useState } from 'react'
-import {Col, Row} from "antd";
+import React, { useState, useEffect } from 'react'
+import {Col, Row, Space, Spin, Skeleton} from "antd";
 import '../../assets/styles/ChartBar.scss';
 import { Typography } from 'antd';
 import { Calendar, Alert } from 'antd';
@@ -12,6 +12,7 @@ const CalendarAuth = () => {
         value: moment('2017-01-25'),
         selectedValue: moment('2017-01-25'),
     })
+    const [loading, setloading] = useState(true)
 
     const onSelect = value => {
         setdate({
@@ -24,8 +25,36 @@ const CalendarAuth = () => {
         setdate({ value });
     }
 
-    return (
-        <div>
+    useEffect(() => {
+        setInterval(() => {            
+            setloading(false)
+        }, 2500);
+    }, [])
+
+    const LoadingIcon = (
+        <Row style={{marginTop:'2rem'}} className='calendarauth'>
+            <Col span={2}>
+            </Col>
+            <Col span={7}>
+            </Col>
+            <Col span={7} style={{marginTop:'15%'}}>
+                    <Space size="middle">
+                        <Spin size="large" style={{color:'red'}} />
+                    </Space>
+            </Col>
+            <Col span={6} className='data-col'>
+                <Col style={{margin: '1.5em 2em'}}>
+                    <Title level={4} style={{marginBottom: '1em'}}>Transaction</Title>
+                    <Alert
+                        message={<Skeleton active />}
+                        />
+                </Col>
+            </Col>
+        </Row>
+    )
+
+    
+    const CalendarJs = (
             <Row style={{marginTop:'2rem'}} className='calendarauth'>
                 <Col span={2}>
                 </Col>
@@ -43,6 +72,11 @@ const CalendarAuth = () => {
                     </Col>
                 </Col>
             </Row>
+    )
+    
+    return (
+        <div>
+            {loading !== true ? CalendarJs : LoadingIcon }
         </div>
     )
 }
