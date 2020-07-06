@@ -1,8 +1,9 @@
 import React, { useState } from "react";
-import { Layout, List, Card, Button } from "antd";
+import { List, Card, Button, Row, Col } from "antd";
 import { Typography } from "antd";
 import "../assets/styles/ServicePage.scss";
 import { Modal } from "antd";
+import { CloseOutlined } from "@ant-design/icons";
 
 const { Title } = Typography;
 
@@ -53,80 +54,92 @@ const ServicePage = () => {
     setVisible(false);
   };
   return (
-    <>
-      <Layout className="service-hero">
-        <div className="container">
-          <Title className="service-hero-title">
-            Discover Popular Subscription
-          </Title>
-        </div>
-      </Layout>
-      <Layout className="service-card">
-        <div className="container">
-          {/* <Title level={3} className="service-card-title">
+    <div className="service-page">
+      <Row>
+        <Col span={2} style={{ background: "#8F48EA" }}></Col>
+        <Col span={20} className="service-hero">
+          <div className="service-hero">
+            <Title className="service-hero-title">
+              Discover Popular Subscription
+            </Title>
+          </div>
+        </Col>
+        <Col span={2} style={{ background: "#8F48EA" }}></Col>
+      </Row>
+      <Row>
+        <Col span={2}></Col>
+        <Col span={20} className="service-card">
+          <div className="container">
+            {/* <Title level={3} className="service-card-title">
             Popular Apps
           </Title> */}
-          <List
-            grid={{
-              gutter: 16,
-              xs: 1,
-              sm: 2,
-              md: 3,
-              lg: 3,
-              xl: 3,
-              xxl: 3,
-            }}
-            dataSource={data}
-            renderItem={(item) => (
-              <List.Item>
-                <Card
-                  className="card-item"
-                  hoverable
-                  onClick={() => showModal(item.title, item.cover)}
-                  style={{
-                    background: `url(${item.cover})`,
-                    backgroundSize: "cover",
-                    backgroundRepeat: "no-repeat",
-                    borderRadius: "0.5em",
-                    backgroundPosition: "center",
-                    height: 220,
-                  }}
-                >
-                  <div className="overlay">
-                    <div className="text">{item.title}</div>
-                  </div>
-                </Card>
-                <Modal
-                  centered
-                  closable={false}
-                  visible={visible}
-                  onOk={handleOk}
-                  onCancel={handleCancel}
-                  footer={[
-                    <Button key="back" onClick={handleCancel}>
-                      Return
-                    </Button>,
-                  ]}
-                >
-                  <div className="cover">
-                    <img src={cover} alt="" />
-                  </div>
-                  <p>{title}</p>
-                  <p>
-                    Loripsum dolor sit amet consectetur adipisicing elit.
-                    Veritatis ipsam iusto facilis quae. Animi quasi repellat
-                    eligendi amet necessitatibus repudiandae perferendis velit
-                    officia obcaecati ad! Rem voluptatibus accusantium maxime
-                    libero?
-                  </p>
-                  <p>Login to subscribe</p>
-                </Modal>
-              </List.Item>
-            )}
-          />
-        </div>
-      </Layout>
-    </>
+            <List
+              grid={{
+                gutter: 16,
+                xs: 1,
+                sm: 2,
+                md: 3,
+                lg: 3,
+                xl: 3,
+                xxl: 3,
+              }}
+              dataSource={data}
+              renderItem={(item) => (
+                <List.Item>
+                  <Card
+                    className="card-item"
+                    hoverable
+                    onClick={() => showModal(item.title, item.cover)}
+                    style={{
+                      background: `url(${item.cover})`,
+                      backgroundSize: "cover",
+                      backgroundRepeat: "no-repeat",
+                      borderRadius: "0.5em",
+                      backgroundPosition: "center",
+                      height: 220,
+                    }}
+                  >
+                    <div className="overlay">
+                      <div className="text">{item.title}</div>
+                    </div>
+                  </Card>
+                </List.Item>
+              )}
+            />
+            <Modal
+              className="modal-service"
+              centered
+              visible={visible}
+              onOk={handleOk}
+              onCancel={handleCancel}
+              bodyStyle={{ padding: 0, borderRadius: "0.5em" }}
+              width={450}
+              footer={[
+                <Button key="back" onClick={handleCancel}>
+                  Return
+                </Button>,
+              ]}
+              closeIcon={<CloseOutlined style={{ color: "white" }} />}
+            >
+              <div className="cover">
+                <img src={cover} alt="" />
+              </div>
+              <div className="service-info">
+                <Title level={3}>{title}</Title>
+                <p>
+                  Loripsum dolor sit amet consectetur adipisicing elit.
+                  Veritatis ipsam iusto facilis quae. Animi quasi repellat
+                  eligendi amet necessitatibus repudiandae perferendis velit
+                  officia obcaecati ad! Rem voluptatibus accusantium maxime l
+                  ibero?
+                </p>
+              </div>
+            </Modal>
+          </div>
+        </Col>
+        <Col span={2}></Col>
+      </Row>
+    </div>
   );
 };
 

@@ -1,21 +1,22 @@
 import React, { Fragment } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import HomePage from "../pages/HomePage";
-import Header from '../pages/layouts/Header'
+// import Header from '../pages/layouts/Header'
 import Dashboard from "../pages/Dashboard";
 import ChartBar from "../components/Dashboard/ChartBar";
 import CalendarAuth from "../components/Dashboard/CalendarAuth";
-import HeaderDash2 from "../components/Dashboard/HeaderDash copy";
+// import HeaderDash2 from "../components/Dashboard/HeaderDash copy";
 import Subscription from "../components/Dashboard/Subscription";
 import ServicePage from "../pages/ServicePage";
-import HeaderDash from "../components/Dashboard/HeaderDash";
+// import HeaderDash from "../components/Dashboard/HeaderDash";
+import Header from '../pages/layouts/Header';
 
 const Routes = () => {
   return (
     <Fragment>
       <Router>
-        {/* <Header/> */}
-        <HeaderDash2/>
+        <Header />
+        {/* <HeaderDash2 /> */}
         <Switch>
           <Route path="/" component={HomePage} exact />
           <Route path="/service" component={ServicePage} exact />
