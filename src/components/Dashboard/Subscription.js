@@ -53,7 +53,7 @@ const Subscription = () => {
   };
 
   return (
-    <div className="sub-component">
+    <div className="sub-component subscription">
       <Row style={{ marginTop: "2rem" }}>
         <Col span={2}></Col>
         <Col span={20}>

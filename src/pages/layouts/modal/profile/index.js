@@ -3,7 +3,7 @@ import "../Modal.scss";
 
 // Redux
 import { useDispatch, useSelector } from "react-redux";
-import { ACTION_UPDATE_PROFILE } from "../../../store/actions/auth";
+import { ACTION_UPDATE_PROFILE } from "../../../../stores/actions/auth";
 
 export default function Signin(props) {
   const stateUser = useSelector(state => state.auth);

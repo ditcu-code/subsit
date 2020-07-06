@@ -54,7 +54,7 @@ const ServicePage = () => {
     setVisible(false);
   };
   return (
-    <>
+    <div className="service-page">
       <Row>
         <Col span={2} style={{ background: "#8F48EA" }}></Col>
         <Col span={20} className="service-hero">
@@ -139,7 +139,7 @@ const ServicePage = () => {
         </Col>
         <Col span={2}></Col>
       </Row>
-    </>
+    </div>
   );
 };
 
