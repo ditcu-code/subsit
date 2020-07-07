@@ -1,0 +1,49 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+
+.landing{
+    width: 100%;
+    background: linear-gradient(269.24deg, rgba(225, 225, 225, 0.21) -4.24%, #FAFAFA 54.53%);
+    .row{
+        display: flex;
+        margin: 0rem 1.7rem 1rem 5rem;
+        // background-image: url('https://i1.wp.com/www.romadecade.org/wp-content/uploads/2019/07/contoh-teks-diskusi.jpg?fit=700%2C400&ssl=1'),;
+        background-size: 100%;
+        background: linear-gradient(to left, white, 0.2);
+        &__left{
+            align-items: center;
+            justify-content: center;
+            padding: 2rem 0;
+            margin: 3rem 1rem 3rem 0;
+            // background-color: white;
+            h1 {
+                font-size: 40px;
+                font-family: 'Poppins', sans-serif;
+            }
+            a {
+                background-color: #8F48EA;
+                border-radius: 5px;
+                border-style: none;
+                padding: 0.5rem 4rem;
+                color: white;
+            }
+        }
+        &__right{
+            opacity: 0.3;
+            
+        }
+    }
+    .rows {
+        margin: 2rem ;
+        h3 {
+            font-size: 24px;
+            line-height: 36px;
+            font-style: normal;
+            font-weight: bold;
+        }
+        .apps-logo{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+    }
+}
