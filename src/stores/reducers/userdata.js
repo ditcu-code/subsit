@@ -1,9 +1,8 @@
-import {GET_PROFILE} from "../actions/types";
+import {GET_PROFILE, UPDATE_NAME} from "../actions/types";
 
 const initialState= {
     profile: null,
-    watchlist: [],
-    myreview: []
+    status: "",
 }
 
 const userdata = (state = initialState, action) => {
@@ -12,7 +11,12 @@ const userdata = (state = initialState, action) => {
             return {
             ...state,
             profile: action.payload
-            }
+            };
+        case UPDATE_NAME:
+            return{
+            ...state,
+            status: action.payload
+            };
         default:
         return{
             ...state
