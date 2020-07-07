@@ -11,6 +11,7 @@ import { ACTION_SIGN_OUT } from "../../stores/actions/auth";
 import "../../assets/styles/Header.scss";
 import {getProfile} from "../../stores/actions/userdata"
 
+
 const Header = (props) => {
     const token = localStorage.getItem('userLocal')
     const stateUser = useSelector(state => state.auth);
@@ -30,11 +31,8 @@ const Header = (props) => {
 
     console.log('userdata', userdata)
 
-    useEffect((token) => {
-        dispatch(getProfile(token))
-        return () => {
-            dispatch(getProfile(token))
-        }
+    useEffect(() => {
+        dispatch(getProfile())
     }, [dispatch, token])
 
     const doSignout = () => {

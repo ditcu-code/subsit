@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { Row, Col, Avatar, Input } from 'antd'
+import { Row, Col, Avatar, Input, Space } from 'antd'
 import { UserOutlined } from '@ant-design/icons'
 import { useDispatch, useSelector } from "react-redux";
 import '../assets/styles/Profile.scss'
@@ -24,8 +24,9 @@ const Profile = () => {
                 <Col span={9}>
                 </Col>
                 <Col span={6} className='avatar'>
-                    {/* <Avatar size={150} src={userdata.image_url === null ? <UserOutlined/> : userdata.image_url }/> */}
-                    {/* <Input size="large" defaultValue={(userdata.name === null ? 'UserName' : userdata.name)} prefix={<UserOutlined />} /> */}
+                    <Avatar size={150} src={userdata.image_url == null ? <UserOutlined/> : userdata.image_url }/>
+                    <Space></Space>
+                    <Input size="large" defaultValue={userdata.name} prefix={<UserOutlined />} />
                 </Col>
                 <Col span={9}>
                 </Col>
