@@ -1,6 +1,42 @@
 .profile-doom{
+    .ant-modal-content{
+        width: 5rem;
+        height: 5rem;
+    }
     .avatar{
-        margin: 5rem 0;
+        margin: 5rem 0rem;
         text-align: center;
+    }
+    .buttonImage{
+        .ant-btn:hover, .ant-btn:focus{
+            color: #8F48EA;
+            border-color: #8F48EA;
+        }
+    }
+    .ant-btn-primary{
+        background: #8F48EA;
+        color: white;
+        border-color: #8F48EA;
+    }
+    .ant-btn:hover{
+        color: white;
+        font-size: 105%;
+    }
+    .ant-btn:focus{
+        color: white;
+    }
+    .ant-btn-primary[disabled], .ant-btn-primary[disabled]:hover, .ant-btn-primary[disabled]:focus, .ant-btn-primary[disabled]:active{
+        color: rgba(0, 0, 0, 0.25);
+        background: #f5f5f5;
+        border-color: #d9d9d9;
+        text-shadow: none;
+        box-shadow: none;
+    }
+}
+
+.modalEditImage{
+    .ant-modal-body{
+        margin-top: 10px;
+        padding: 40px 47px 28px 47px;
     }
 }

@@ -5,21 +5,18 @@ import Signup from './modal/auths/Signup';
 import Profile from "./modal/profile";
 import Upload from "./modal/profile/upload";
 import { Col, Avatar, Row, Dropdown, Menu } from "antd";
-import { Link, useHistory, useLocation } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { PieChartOutlined, AppstoreOutlined, CalendarOutlined, UserOutlined } from '@ant-design/icons';
 import { ACTION_SIGN_OUT } from "../../stores/actions/auth";
 import "../../assets/styles/Header.scss";
 import {getProfile} from "../../stores/actions/userdata"
+const token = localStorage.getItem('userLocal')
 
 const Header = (props) => {
-    const token = localStorage.getItem('userLocal')
     const stateUser = useSelector(state => state.auth);
     const dispatch = useDispatch();
-    // let history = useHistory()
     let location = useLocation()
     const userdata = useSelector(state => state.userdata.profile)
-    // console.log('lokasi', location.pathname)
-    // console.log('history', history)
 
     const [modal, setModal] = useState("");
 
@@ -28,13 +25,11 @@ const Header = (props) => {
     const profile = "profile";
     const upload = "upload";
 
-    console.log('userdata', userdata)
+    // console.log('userdata', userdata)
 
-    useEffect((token) => {
-        dispatch(getProfile(token))
-        return () => {
-            dispatch(getProfile(token))
-        }
+    useEffect(() => {
+        dispatch(getProfile())
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [dispatch, token])
 
     const doSignout = () => {

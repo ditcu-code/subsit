@@ -14,3 +14,4 @@ export const GET_MOVIE = "GET_MOVIE";
 export const GET_MOVIES_ID = "GET_MOVIES_ID";
 export const GET_REVIEWS = "GET_REVIEWS";
 export const GET_COMMENT = "GET_COMMENT";
+export const UPDATE_NAME = "UPDATE_NAME";
