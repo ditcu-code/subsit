@@ -23,7 +23,7 @@ const Profile = () => {
     useEffect(() => {
         setInterval(() => {
             setloading(false)
-        }, 2500);
+        }, 2000);
     }, [])
 
     const loadingIcon = (
@@ -33,7 +33,7 @@ const Profile = () => {
     )
 
     useEffect(() => {
-        if (statusCek) {
+        if (statusCek === true) {
             openNotificationName('success')
         }
     }, [statusCek])

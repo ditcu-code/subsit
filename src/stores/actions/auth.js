@@ -81,8 +81,8 @@ export const ACTION_SIGN_UP = input => {
 
 export const ACTION_SIGN_IN = input => {
   return dispatch => {
-    console.log(input)
-    console.log("ACTION_SIGN_IN");
+    // console.log(input)
+    // console.log("ACTION_SIGN_IN");
     dispatch({ type: LOADING });
     Axios.post(`${baseUrl}/user/login`, input)
       .then(res => {

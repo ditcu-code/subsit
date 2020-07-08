@@ -4,14 +4,14 @@ const baseUrl = "http://subsit-team-a.herokuapp.com/api/v1";
 
 export const getProfile = () => async dispatch => {
     let token = localStorage.getItem("userLocal")
-    console.log('getProfile', token)
+    // console.log('getProfile', token)
     try{
         const res = await axios.get(`${baseUrl}/profile`, {
             headers: {
                 Authorization: token
             }
         })
-        console.log('getprofile2', res.data.data.profile)
+        // console.log('getprofile2', res.data.data.profile)
         dispatch({
             type: GET_PROFILE,
             payload: res.data.data.profile
@@ -22,7 +22,7 @@ export const getProfile = () => async dispatch => {
 }
 
 export const editName = name => async dispatch => {
-    console.log('editName', name)
+    // console.log('editName', name)
     let token = localStorage.getItem("userLocal")
     try {
         const res = await axios.put(`${baseUrl}/profile/update/name`, name, {
@@ -30,7 +30,7 @@ export const editName = name => async dispatch => {
                 Authorization: token
             }
         })
-        console.log("editName2", res.data.status)
+        // console.log("editName2", res.data.status)
         dispatch({
             type: UPDATE_NAME,
             payload: res.data.status

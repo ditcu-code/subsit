@@ -39,7 +39,7 @@ const ChartBar = () => {
     useEffect(() => {
         setInterval(() => {            
             setloading(false)
-        }, 2500);
+        }, 2000);
     }, [])
 
     const HistoryItem = data.map(item =>
