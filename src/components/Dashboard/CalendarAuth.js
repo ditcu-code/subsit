@@ -28,7 +28,7 @@ const CalendarAuth = () => {
     useEffect(() => {
         setInterval(() => {            
             setloading(false)
-        }, 2500);
+        }, 2000);
     }, [])
 
     const LoadingIcon = (

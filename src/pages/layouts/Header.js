@@ -10,9 +10,9 @@ import { PieChartOutlined, AppstoreOutlined, CalendarOutlined, UserOutlined } fr
 import { ACTION_SIGN_OUT } from "../../stores/actions/auth";
 import "../../assets/styles/Header.scss";
 import {getProfile} from "../../stores/actions/userdata"
-const token = localStorage.getItem('userLocal')
 
 const Header = (props) => {
+    const token = localStorage.getItem('userLocal')
     const stateUser = useSelector(state => state.auth);
     const dispatch = useDispatch();
     let location = useLocation()
@@ -28,9 +28,16 @@ const Header = (props) => {
     // console.log('userdata', userdata)
 
     useEffect(() => {
-        dispatch(getProfile())
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+        if(token){
+            dispatch(getProfile(token))
+        }
     }, [dispatch, token])
+
+    // const cekUserdata = (token) => {
+    //     if(token){
+    //         dispatch(getProfile(token))
+    //     }
+    // }
 
     const doSignout = () => {
         console.log("signout triggered");

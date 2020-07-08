@@ -2,7 +2,7 @@ import {GET_PROFILE, UPDATE_NAME} from "../actions/types";
 
 const initialState= {
     profile: null,
-    status: "",
+    status: false,
 }
 
 const userdata = (state = initialState, action) => {
@@ -15,7 +15,7 @@ const userdata = (state = initialState, action) => {
         case UPDATE_NAME:
             return{
             ...state,
-            status: action.payload
+            status: true
             };
         default:
         return{
